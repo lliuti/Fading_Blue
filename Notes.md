@@ -208,6 +208,4 @@ the "home/village" have:
 - lots of red people
 - the king
 - the gate in the barrier to access the levels
-
-
-
+- player can wall jump after finding special item (to access first Thing).
