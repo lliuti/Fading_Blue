@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 74f75bf9893306045bc099799a36d6c4
+guid: 93fdc893758a0c84ea4a8d20dc384530
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,16 +123,16 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: tileset
     originalName: 
-    pivot: {x: 1.074074, y: -3.1333334}
+    pivot: {x: 0.74358976, y: -2.3421054}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 54
-      height: 30
-    spriteID: 2868c3c3180d8b9439729b1959825b86
+      width: 78
+      height: 38
+    spriteID: 1ff8ccae1d4fc314fb1d457db230310c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -154,10 +154,10 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 6
-        y: 94
-        width: 54
-        height: 30
-      spriteId: 2868c3c3180d8b9439729b1959825b86
+        y: 89
+        width: 78
+        height: 38
+      spriteId: 1ff8ccae1d4fc314fb1d457db230310c
     linkedCells: []
     parentIndex: -1
   platformSettings: []
