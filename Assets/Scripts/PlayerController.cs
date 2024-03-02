@@ -13,8 +13,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration; 
     [SerializeField] private float jumpThrust; 
     [SerializeField] private float wallJumpThrust; 
+    [SerializeField] private float coyoteTime;
+    private float currentCoyoteTime;
     private float xInput = 0f;
     private float movement = 0f;
+    private bool isJumping = false;
     private bool isFacingRight = true;
     private bool canWallJump = false;
 
@@ -53,12 +56,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         respawnPos = transform.position;
+        currentCoyoteTime = coyoteTime;
     }
 
     void Update()
     {
         CalculateMovement();
         FlipSprite();
+        CoyoteTime();
         if (transform.position.y < -5f) Die();
     }
 
@@ -66,25 +71,6 @@ public class PlayerController : MonoBehaviour
     {
         playerRb.AddForce(new Vector2(movement, 0), ForceMode2D.Force);
         animator.SetBool("isGrounded", IsGrounded());
-    }
-
-    void Die()
-    {
-        StartCoroutine(Respawn());
-    }
-
-    IEnumerator Respawn()
-    {
-        Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(0.2f);
-        Time.timeScale = 1f;
-        playerRb.velocity = Vector2.zero;
-        transform.position = respawnPos;
-    }
-
-    public void UpdateRespawnPos(Vector2 newPos)
-    {
-        respawnPos = newPos;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -97,22 +83,12 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.CompareTag("JumpableWall")) canWallJump = false;
     }
 
-    bool IsGrounded()
-    {
-        return Physics2D.BoxCast(transform.position, groundCheckCastSize, 0, -Vector2.up, groundCheckCastDistance, groundLayer);
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawWireCube(transform.position - transform.up * groundCheckCastDistance, groundCheckCastSize);
-    }
-
     void OnJump(InputValue value)
     {   
-        if (!IsGrounded() && !canWallJump) return;
+        if (currentCoyoteTime <= 0 && !canWallJump) return;
 
         // NORMAL JUMP
-        if (IsGrounded()) {
+        if (currentCoyoteTime > 0 && !canWallJump) {
             playerRb.AddForce(new Vector2(0, jumpThrust), ForceMode2D.Impulse);
         }
 
@@ -121,13 +97,25 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(new Vector2(0, jumpThrust * wallJumpThrust), ForceMode2D.Impulse);
         }
 
+        isJumping = true;
         animator.SetTrigger("jump");
     }
 
     void OnJumpCanceled(InputAction.CallbackContext context) {
+        isJumping = false;
         if (playerRb.velocity.y > 0) {
             playerRb.velocity = new Vector2(playerRb.velocity.x, 0);
         }
+    }
+
+    void CoyoteTime() {
+        if (isJumping) {
+            currentCoyoteTime = 0f;
+            return;
+        }
+
+        if (IsGrounded()) currentCoyoteTime = coyoteTime;
+        currentCoyoteTime -= 1 * Time.deltaTime;
     }
 
     void OnMove(InputValue value) 
@@ -152,6 +140,34 @@ public class PlayerController : MonoBehaviour
             playerSprite.flipX = !playerSprite.flipX;
             isFacingRight = !isFacingRight;
         }
+    }
+    
+    bool IsGrounded()
+    {
+        return Physics2D.BoxCast(transform.position, groundCheckCastSize, 0, -Vector2.up, groundCheckCastDistance, groundLayer);
+    }
+
+    void Die()
+    {
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.2f);
+        Time.timeScale = 1f;
+        playerRb.velocity = Vector2.zero;
+        transform.position = respawnPos;
+    }
+
+    public void UpdateRespawnPos(Vector2 newPos)
+    {
+        respawnPos = newPos;
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position - transform.up * groundCheckCastDistance, groundCheckCastSize);
     }
 
     void OnDestroy()
