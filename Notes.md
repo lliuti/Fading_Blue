@@ -190,6 +190,9 @@ https://www.youtube.com/watch?v=m-6QjaDfigs
 Parallax
 https://www.youtube.com/watch?v=zit45k6CUMk
 
+Ways to Ground Check
+https://www.youtube.com/watch?v=P_6W-36QfLA
+
 ---
     
 ### Quick Ideas:
