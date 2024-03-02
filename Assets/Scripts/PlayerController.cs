@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+using UnityEditor.Timeline.Actions;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +13,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration; 
     [SerializeField] private float jumpThrust; 
     [SerializeField] private float wallJumpThrust; 
+    private float xInput = 0f;
+    private float movement = 0f;
+    private bool isFacingRight = true;
+    private bool canWallJump = false;
 
     [Header("Checks")]
     [SerializeField] private float groundCheckCastDistance;
@@ -19,20 +25,29 @@ public class PlayerController : MonoBehaviour
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer; 
 
+    private Vector2 respawnPos;
     private Rigidbody2D playerRb;
     private Animator animator;
     private SpriteRenderer playerSprite;
-    private float xInput = 0f;
-    private float movement = 0f;
-    private bool isFacingRight = true;
-    private bool canWallJump = false;
-    private Vector2 respawnPos;
+    private PlayerInput playerInput;
 
     void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerSprite = GetComponent<SpriteRenderer>();
+        playerInput = new PlayerInput();
+        playerInput.PlayerActionMap.Jump.canceled += OnJumpCanceled;
+    }
+
+    void OnEnable() 
+    {
+        playerInput.Enable();
+    }
+    
+    void OnDisable() 
+    {
+        playerInput.Disable();
     }
 
     void Start()
@@ -42,7 +57,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        HandleInput();
         CalculateMovement();
         FlipSprite();
         if (transform.position.y < -5f) Die();
@@ -50,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        playerRb.AddForce(new Vector2(movement, 0), ForceMode2D.Force);
         animator.SetBool("isGrounded", IsGrounded());
     }
 
@@ -73,19 +87,6 @@ public class PlayerController : MonoBehaviour
         respawnPos = newPos;
     }
 
-    void HandleInput()
-    {
-        if (Input.GetButtonDown("Jump") && IsGrounded()) Jump();
-        if (Input.GetButtonDown("Jump") && canWallJump) WallJump();
-        if (Input.GetButtonUp("Jump")) JumpCut();
-    }
-
-    void WallJump()
-    {
-        animator.SetTrigger("jump");
-        playerRb.AddForce(new Vector2(0, jumpThrust * wallJumpThrust), ForceMode2D.Impulse);
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("JumpableWall")) canWallJump = true;
@@ -106,21 +107,37 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireCube(transform.position - transform.up * groundCheckCastDistance, groundCheckCastSize);
     }
 
-    void Jump()
-    {
+    void OnJump(InputValue value)
+    {   
+        if (!IsGrounded() && !canWallJump) return;
+
+        // NORMAL JUMP
+        if (IsGrounded()) {
+            playerRb.AddForce(new Vector2(0, jumpThrust), ForceMode2D.Impulse);
+        }
+
+        // WALL JUMP
+        if (canWallJump) {
+            playerRb.AddForce(new Vector2(0, jumpThrust * wallJumpThrust), ForceMode2D.Impulse);
+        }
+
         animator.SetTrigger("jump");
-        playerRb.AddForce(new Vector2(0, jumpThrust), ForceMode2D.Impulse);
     }
 
-    void JumpCut()
+    void OnJumpCanceled(InputAction.CallbackContext context) {
+        if (playerRb.velocity.y > 0) {
+            playerRb.velocity = new Vector2(playerRb.velocity.x, 0);
+        }
+    }
+
+    void OnMove(InputValue value) 
     {
-        if (playerRb.velocity.y < 0) return;
-        playerRb.velocity = new Vector2(playerRb.velocity.x, 0);
+        xInput = value.Get<Vector2>().x;
     }
 
     void CalculateMovement() 
     {
-        xInput = Input.GetAxisRaw("Horizontal");      
+        // xInput = Input.GetAxisRaw("Horizontal"); 
         float targetSpeed = xInput * maxSpeed;
         float speedDifference = targetSpeed - playerRb.velocity.x;
         movement = speedDifference * acceleration;
@@ -129,16 +146,16 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("yVelocity", playerRb.velocity.y);
     }
 
-    void Move() 
-    {
-        playerRb.AddForce(new Vector2(movement, 0), ForceMode2D.Force);
-    }
-
     void FlipSprite() 
     {
         if ((isFacingRight && xInput < 0) || (!isFacingRight && xInput > 0)) {
             playerSprite.flipX = !playerSprite.flipX;
             isFacingRight = !isFacingRight;
         }
+    }
+
+    void OnDestroy()
+    {
+        playerInput.PlayerActionMap.Jump.canceled -= OnJumpCanceled;
     }
 }
