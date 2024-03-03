@@ -193,6 +193,12 @@ https://www.youtube.com/watch?v=zit45k6CUMk
 Ways to Ground Check
 https://www.youtube.com/watch?v=P_6W-36QfLA
 
+Cinemachine cameras 
+https://www.youtube.com/watch?v=9dzBrLUIF8g
+
+Tile background image to simple parallax
+https://www.youtube.com/watch?v=82zy0LI9tAs
+
 ---
     
 ### Quick Ideas:
