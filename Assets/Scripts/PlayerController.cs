@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         CalculateMovement();
         FlipSprite();
         CoyoteTime();
-        if (transform.position.y < -5f) Die();
+        if (transform.position.y < -9f) Die();
     }
 
     void FixedUpdate()
