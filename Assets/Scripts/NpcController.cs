@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class NpcController : MonoBehaviour
 {
+    [SerializeField] private GameObject interactionIndicator;
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private string[] dialogue;
@@ -20,6 +21,7 @@ public class NpcController : MonoBehaviour
 
     void Update()
     {
+        if (inDialogue) interactionIndicator.SetActive(false);
     }
 
     void OnInteract()
@@ -74,6 +76,7 @@ public class NpcController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
+        interactionIndicator.SetActive(true);
         playerOnRange = true;
     }
 
@@ -81,6 +84,7 @@ public class NpcController : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         playerOnRange = false;
+        interactionIndicator.SetActive(false);
         ClearDialogue();
     }
 
