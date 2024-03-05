@@ -35,13 +35,15 @@ public class ChangeSceneController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D() 
+    void OnTriggerEnter2D(Collider2D other) 
     {
+        if (!other.CompareTag("Player")) return;
         onTriggerRange = true;
     }
 
-    void OnTriggerExit2D() 
+    void OnTriggerExit2D(Collider2D other) 
     {
+        if (!other.CompareTag("Player")) return;
         onTriggerRange = false;
     }
 
