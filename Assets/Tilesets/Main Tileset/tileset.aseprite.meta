@@ -123,15 +123,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: tileset
     originalName: 
-    pivot: {x: 0.74358976, y: -1.1525424}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 78
-      height: 59
+      width: 128
+      height: 128
     spriteID: 1ff8ccae1d4fc314fb1d457db230310c
     spriteBone: []
     spriteOutline: []
@@ -153,10 +153,10 @@ ScriptedImporter:
     - name: tileset
       frameIndex: 0
       cellRect:
-        x: 6
-        y: 68
-        width: 78
-        height: 59
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       spriteId: 1ff8ccae1d4fc314fb1d457db230310c
     linkedCells: []
     parentIndex: -1
