@@ -97,10 +97,10 @@ public class NpcController : MonoBehaviour
         if (gameObject.CompareTag("GateKeeper")) {
             if (collectedFirstCrystal) {
                 dialogue = new string[] {
-                    "What is that?", 
-                    "How did... you change?", 
-                    "Well... that is not my concern anymore.", 
-                    "You want to go? At least now I'm allowed to let the last of your kind leave.", 
+                    "What is... that?", 
+                    "How did... you change your... light?", 
+                    "Well. Does not matter!", 
+                    "At least now I'm allowed to let the last of your kind leave.", 
                     "I don't know what you have done but you still are blue.", 
                     "And will never be one of us."
                 };
