@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NpcController : MonoBehaviour
 {
     [SerializeField] private GameObject interactionIndicator;
-    [SerializeField] private GameObject dialogueCanvas;
-    [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private string[] dialogue;
     [SerializeField] private float typeSpeed;
+    private GameObject dialogueCanvas;
+    private TextMeshProUGUI dialogueText;
     private int dialogueIndex;
     private bool playerOnRange = false;
     private bool inDialogue = false;
 
     void Start()
     {
+        dialogueCanvas = GameObject.FindGameObjectWithTag("DialogueCanvas");
+        dialogueText = dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>();
+        
         dialogueText.text = "";
+        dialogueCanvas.SetActive(false);
     }
 
     void Update()

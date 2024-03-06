@@ -8,6 +8,8 @@ TagManager:
   - JumpableWall
   - NPC
   - GateKeeper
+  - DialogueCanvas
+  - DialogueText
   layers:
   - Default
   - TransparentFX
