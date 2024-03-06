@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using UnityEditor.Timeline.Actions;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,12 +31,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField] private ParticleSystem dustParticles;
+    [SerializeField] private ParticleSystem crystalParticles;
 
     private Vector2 respawnPos;
     private Rigidbody2D playerRb;
     private Animator animator;
     private SpriteRenderer playerSprite;
     private PlayerInput playerInput;
+    private bool changedColor = false;
 
     public bool collectedFirstCrystal = false;
 
@@ -69,9 +72,7 @@ public class PlayerController : MonoBehaviour
         CalculateMovement();
         FlipSprite();
         CoyoteTime();
-
-        if (collectedFirstCrystal) {} // play transforming animation here.
-
+        if (collectedFirstCrystal && !changedColor) CollectedFirstCrystal();
         if (transform.position.y < -9f) Die();
     }
 
@@ -79,6 +80,14 @@ public class PlayerController : MonoBehaviour
     {
         playerRb.AddForce(new Vector2(movement, 0), ForceMode2D.Force);
         animator.SetBool("isGrounded", IsGrounded());
+    }
+
+    void CollectedFirstCrystal()
+    {
+        crystalParticles.Play();
+        changedColor = true;
+        Light2D light = transform.Find("Light 2D").GetComponent<Light2D>();
+        light.color = new Color(217f/255, 77f/255, 77f/255, 255f/255);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
