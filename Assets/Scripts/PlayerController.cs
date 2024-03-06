@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer; 
 
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem dustParticles;
+
     private Vector2 respawnPos;
     private Rigidbody2D playerRb;
     private Animator animator;
@@ -98,6 +101,7 @@ public class PlayerController : MonoBehaviour
         }
 
         isJumping = true;
+        dustParticles.Play();
         animator.SetTrigger("jump");
     }
 
