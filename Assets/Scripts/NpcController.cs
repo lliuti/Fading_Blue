@@ -92,6 +92,22 @@ public class NpcController : MonoBehaviour
         }
     }
 
+    void ChecksIfCollectedCrystal(bool collectedFirstCrystal)
+    {
+        if (gameObject.CompareTag("GateKeeper")) {
+            if (collectedFirstCrystal) {
+                dialogue = new string[] {
+                    "What is that?", 
+                    "How did... you change?", 
+                    "Well... that is not my concern anymore.", 
+                    "You want to go? At least now I'm allowed to let the last of your kind leave.", 
+                    "I don't know what you have done but you still are blue.", 
+                    "And will never be one of us."
+                };
+            }
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
@@ -99,6 +115,7 @@ public class NpcController : MonoBehaviour
         playerOnRange = true;
 
         LookToPlayer(other.transform.position.x);
+        ChecksIfCollectedCrystal(other.GetComponent<PlayerController>().collectedFirstCrystal);
     }
 
     void OnTriggerExit2D(Collider2D other) 
@@ -106,6 +123,7 @@ public class NpcController : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         playerOnRange = false;
         interactionIndicator.SetActive(false);
+        StopAllCoroutines();
         ClearDialogue();
     }
 
