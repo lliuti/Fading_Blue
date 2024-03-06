@@ -14,9 +14,12 @@ public class NpcController : MonoBehaviour
     private int dialogueIndex;
     private bool playerOnRange = false;
     private bool inDialogue = false;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         dialogueCanvas = transform.parent.transform.Find("DialogueCanvas").gameObject;
 
         dialogueText = dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>();
@@ -79,11 +82,23 @@ public class NpcController : MonoBehaviour
         }
     }
 
+    void LookToPlayer(float playerX)
+    {
+        float distanceToPlayer = transform.position.x - playerX;
+        if (distanceToPlayer < 0) {
+            spriteRenderer.flipX = false;
+        } else {
+            spriteRenderer.flipX = true;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
         if (dialogue.Length > 0) interactionIndicator.SetActive(true);
         playerOnRange = true;
+
+        LookToPlayer(other.transform.position.x);
     }
 
     void OnTriggerExit2D(Collider2D other) 
