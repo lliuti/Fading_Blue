@@ -76,7 +76,7 @@ public class NpcController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
-        interactionIndicator.SetActive(true);
+        if (dialogue.Length > 0) interactionIndicator.SetActive(true);
         playerOnRange = true;
     }
 
