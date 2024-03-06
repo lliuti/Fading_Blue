@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer playerSprite;
     private PlayerInput playerInput;
 
+    public bool collectedFirstCrystal = false;
+
     void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -67,6 +69,9 @@ public class PlayerController : MonoBehaviour
         CalculateMovement();
         FlipSprite();
         CoyoteTime();
+
+        if (collectedFirstCrystal) {} // play transforming animation here.
+
         if (transform.position.y < -9f) Die();
     }
 
