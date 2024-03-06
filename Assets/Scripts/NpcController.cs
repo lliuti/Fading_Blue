@@ -17,10 +17,11 @@ public class NpcController : MonoBehaviour
 
     void Start()
     {
-        dialogueCanvas = GameObject.FindGameObjectWithTag("DialogueCanvas");
+        dialogueCanvas = transform.parent.transform.Find("DialogueCanvas").gameObject;
+
         dialogueText = dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>();
-        
         dialogueText.text = "";
+
         dialogueCanvas.SetActive(false);
     }
 
