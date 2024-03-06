@@ -276,9 +276,7 @@ MonoBehaviour:
   interactionIndicator: {fileID: 4575735896574121943}
   dialogueCanvas: {fileID: 0}
   dialogueText: {fileID: 0}
-  dialogue:
-  - Hello, weirdo.
-  - Why are you still here!?
+  dialogue: []
   typeSpeed: 0.05
 --- !u!114 &683913236930243391
 MonoBehaviour:
