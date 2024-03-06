@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - JumpableWall
+  - NPC
+  - GateKeeper
   layers:
   - Default
   - TransparentFX
