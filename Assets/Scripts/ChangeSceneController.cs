@@ -8,6 +8,7 @@ public class ChangeSceneController : MonoBehaviour
 {
     [SerializeField] private bool isNextScene; 
     private bool onTriggerRange = false;
+    private bool canInteract = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class ChangeSceneController : MonoBehaviour
     
     void OnInteract()
     {
-        if (onTriggerRange) {
+        if (onTriggerRange && canInteract) {
             TriggerScene(isNextScene);
         }
     }
@@ -38,6 +39,7 @@ public class ChangeSceneController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
+        if (other.GetComponent<PlayerController>().collectedFirstCrystal) canInteract = true;
         onTriggerRange = true;
     }
 

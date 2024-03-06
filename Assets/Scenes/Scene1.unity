@@ -183,6 +183,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.167
       objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You know I can't let you out.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: 'I will repeat it until you give up:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: If you dont even RESEMBLE us by a little bit,
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: then you are not leaving!
+      objectReference: {fileID: 0}
     - target: {fileID: 6777315361869293208, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
       propertyPath: m_Name
       value: NPC - Gate Keeper
@@ -13801,6 +13821,18 @@ PrefabInstance:
     - target: {fileID: 1887233737357005104, guid: c39573724fbed5e478b143251aabb95d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216646195451019063, guid: c39573724fbed5e478b143251aabb95d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216646195451019063, guid: c39573724fbed5e478b143251aabb95d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216646195451019063, guid: c39573724fbed5e478b143251aabb95d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6501828044987123013, guid: c39573724fbed5e478b143251aabb95d, type: 3}
       propertyPath: m_Name
