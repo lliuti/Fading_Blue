@@ -9,7 +9,7 @@ public class CrystalController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        other.GetComponent<PlayerController>().collectedFirstCrystal = true;
+        other.GetComponent<PlayerController>().collectedCrystal = true;
         Destroy(doorLock);
         Destroy(gameObject);
     }
