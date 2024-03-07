@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneController : MonoBehaviour
 {
     [SerializeField] private bool isNextScene; 
+    [SerializeField] private bool isWalkable = true;
     private bool onTriggerRange = false;
     private bool canInteract = false;
 
@@ -40,6 +41,7 @@ public class ChangeSceneController : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         if (other.GetComponent<PlayerController>().collectedCrystal) canInteract = true;
+        if (isWalkable && canInteract) TriggerScene(isNextScene);
         onTriggerRange = true;
     }
 
