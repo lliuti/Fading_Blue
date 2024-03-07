@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private bool changedColor = false;
 
-    public bool collectedFirstCrystal = false;
+    public bool collectedCrystal = false;
 
     void Awake()
     {
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         CalculateMovement();
         FlipSprite();
         CoyoteTime();
-        if (collectedFirstCrystal && !changedColor) CollectedFirstCrystal();
+        if (collectedCrystal && !changedColor) CollectedCrystal();
         if (transform.position.y < -9f) Die();
     }
 
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isGrounded", IsGrounded());
     }
 
-    void CollectedFirstCrystal()
+    void CollectedCrystal()
     {
         crystalParticles.Play();
         changedColor = true;

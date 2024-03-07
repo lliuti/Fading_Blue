@@ -115,7 +115,7 @@ public class NpcController : MonoBehaviour
         playerOnRange = true;
 
         LookToPlayer(other.transform.position.x);
-        ChecksIfCollectedCrystal(other.GetComponent<PlayerController>().collectedFirstCrystal);
+        ChecksIfCollectedCrystal(other.GetComponent<PlayerController>().collectedCrystal);
     }
 
     void OnTriggerExit2D(Collider2D other) 

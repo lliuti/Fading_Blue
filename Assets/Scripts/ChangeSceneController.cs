@@ -39,7 +39,7 @@ public class ChangeSceneController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
-        if (other.GetComponent<PlayerController>().collectedFirstCrystal) canInteract = true;
+        if (other.GetComponent<PlayerController>().collectedCrystal) canInteract = true;
         onTriggerRange = true;
     }
 
