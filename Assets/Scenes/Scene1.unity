@@ -21478,7 +21478,7 @@ GameObject:
   - component: {fileID: 1071786546}
   - component: {fileID: 1071786547}
   m_Layer: 0
-  m_Name: lock
+  m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38483,6 +38483,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2077063009974594133, guid: 39a1f876fad8c8545bdde2eaefa0231f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593908006241895779, guid: 39a1f876fad8c8545bdde2eaefa0231f, type: 3}
+      propertyPath: isWalkable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
