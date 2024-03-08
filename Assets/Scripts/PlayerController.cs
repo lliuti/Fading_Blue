@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         crystalParticles.Play();
         changedColor = true;
         Light2D light = transform.Find("Light 2D").GetComponent<Light2D>();
-        light.color = new Color(217f/255, 77f/255, 77f/255, 255f/255);
+        light.color = new Color(255f/255, 1f/255, 1f/255, 255f/255);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
