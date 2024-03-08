@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
         return Physics2D.BoxCast(transform.position, groundCheckCastSize, 0, -Vector2.up, groundCheckCastDistance, groundLayer);
     }
 
-    void Die()
+    public void Die()
     {
         StartCoroutine(Respawn());
     }
