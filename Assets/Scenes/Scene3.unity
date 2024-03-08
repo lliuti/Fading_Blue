@@ -5396,6 +5396,155 @@ Transform:
   - {fileID: 732450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &822298055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 44950544154226619, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Color.b
+      value: 0.11654504
+      objectReference: {fileID: 0}
+    - target: {fileID: 44950544154226619, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9076587
+      objectReference: {fileID: 0}
+    - target: {fileID: 44950544154226619, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 44950544154226619, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44950544154226619, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 67.746185
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.9439025
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420032640634769698, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208483104193458737, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208483104193458737, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.314
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464721833480963360, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464721833480963360, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1289031862, guid: 181703bad84219a4cb1db1b515f12c68, type: 3}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: So you are one of those, right?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Those who can't accept their light.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: I can't stand on your way but I must warn you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: You can keep messing with the Crystals
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: But they will not change you completely.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[5]
+      value: First your light will change.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[6]
+      value: Then your color.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[7]
+      value: But they will not transform who you really are.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[8]
+      value: I am ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[9]
+      value: the last of my kind.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[10]
+      value: But I will not give up being myself to "fit".
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[11]
+      value: Well... good luck on your journey!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777315361869293208, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Name
+      value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997402120165375171, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6d4170101eac45449817f07efa11075f, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
 --- !u!1001 &875313091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17090,3 +17239,4 @@ SceneRoots:
   - {fileID: 875313091}
   - {fileID: 1174647788}
   - {fileID: 322388721}
+  - {fileID: 822298055}
