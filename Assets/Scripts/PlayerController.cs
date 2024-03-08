@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem dustParticles;
     [SerializeField] private ParticleSystem crystalParticles;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpSFX;
+
     private Vector2 respawnPos;
     private Rigidbody2D playerRb;
     private Animator animator;
@@ -116,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
         isJumping = true;
         dustParticles.Play();
+        SoundFXManager.instance.PlaySoundFXClip(jumpSFX, transform, 0.5f);
         animator.SetTrigger("jump");
     }
 

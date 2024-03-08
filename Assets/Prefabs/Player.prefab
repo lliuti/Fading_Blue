@@ -5109,7 +5109,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   dustParticles: {fileID: 7221603142220956669}
-  collectedFirstCrystal: 0
+  crystalParticles: {fileID: 0}
+  jumpSFX: {fileID: 8300000, guid: e02434959a69cf246a7c5fd25e8d9c76, type: 3}
+  collectedCrystal: 0
 --- !u!114 &5558268507003191806
 MonoBehaviour:
   m_ObjectHideFlags: 0
