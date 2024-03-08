@@ -5482,7 +5482,7 @@ PrefabInstance:
       objectReference: {fileID: -1289031862, guid: 181703bad84219a4cb1db1b515f12c68, type: 3}
     - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
       propertyPath: dialogue.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
       propertyPath: dialogue.Array.data[0]
@@ -5530,7 +5530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
       propertyPath: dialogue.Array.data[11]
-      value: Well... good luck on your journey!
+      value: As no one should.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5412858191675329082, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
+      propertyPath: dialogue.Array.data[12]
+      value: Well... good luck on your journey, friend!
       objectReference: {fileID: 0}
     - target: {fileID: 6777315361869293208, guid: 3f37ad78583059d40b920f4b678dac79, type: 3}
       propertyPath: m_Name
