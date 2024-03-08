@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] private AudioClip jumpSFX;
+    [SerializeField] private AudioClip walkSFX;
+    private float walkSFXcooldown;
 
     private Vector2 respawnPos;
     private Rigidbody2D playerRb;
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         respawnPos = transform.position;
         currentCoyoteTime = coyoteTime;
+        walkSFXcooldown = walkSFX.length;
     }
 
     void Update()
@@ -75,6 +78,8 @@ public class PlayerController : MonoBehaviour
         CalculateMovement();
         FlipSprite();
         CoyoteTime();
+        WalkSFX();
+        
         if (collectedCrystal && !changedColor) CollectedCrystal();
         if (transform.position.y < -9f) Die();
     }
@@ -83,6 +88,16 @@ public class PlayerController : MonoBehaviour
     {
         playerRb.AddForce(new Vector2(movement, 0), ForceMode2D.Force);
         animator.SetBool("isGrounded", IsGrounded());
+    }
+
+    void WalkSFX()
+    {
+        if (Mathf.Abs(xInput) > 0f && walkSFXcooldown <= 0f && IsGrounded()) {
+            SoundFXManager.instance.PlaySoundFXClip(walkSFX, transform, 0.2f);
+            walkSFXcooldown = walkSFX.length;
+        } else {
+            walkSFXcooldown -= 1 * Time.deltaTime;
+        };
     }
 
     void CollectedCrystal()
@@ -119,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
         isJumping = true;
         dustParticles.Play();
-        SoundFXManager.instance.PlaySoundFXClip(jumpSFX, transform, 0.5f);
+        SoundFXManager.instance.PlaySoundFXClip(jumpSFX, transform, 0.1f);
         animator.SetTrigger("jump");
     }
 

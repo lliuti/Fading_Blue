@@ -38741,6 +38741,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5908433759120777259, guid: c39573724fbed5e478b143251aabb95d, type: 3}
+      propertyPath: walkSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 07ac6b8619345444696458e92687ded5, type: 3}
+    - target: {fileID: 5908433759120777259, guid: c39573724fbed5e478b143251aabb95d, type: 3}
       propertyPath: crystalParticles
       value: 
       objectReference: {fileID: 1038177748}
