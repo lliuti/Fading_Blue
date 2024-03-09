@@ -183,6 +183,45 @@ The player must collect pieces of "thing" in the levels to be able to transform 
 
 ---
 
+### Playtests
+
+1.
+Tester: Sayuri.
+Sequence: from start to level 3.
+Disclaimers: there is still no menu or UI, nor transitions between levels.
+
+> Feedbacks on the Gameplay:
+> "fun but very hard"
+
+> Feedbacks on the Presentation:
+> she doesn't know what to criticize about the art, soundtrack etc. Just said it looks good.
+
+> Feedbacks on the Theme:
+> "the aspect of being a freak/unwelcome is pretty clear"
+
+> General Feedbacks:
+> "this game is very hard" (on scene 1)
+> "i don't know if it is hard because the game is hard or if it is because i suck"
+> "not boring"
+> "liked the soundtrack and you don't really notice the sound effects so they fit"
+> "the background art is really cool"
+> change the interaction indicator to make it more explicit
+
+> Bugs/Glitches found:
+> none
+
+> Notes during gameplay:
+> she went left first. (which leads to a problem)
+> confused with the key to interact.
+> she didn't notice the door without the lock and accidentaly pressed up, so she got confused with why the level changed.
+> stuck in the wall jump (scene 2)
+> in scene 3 she is bumping the character on the first block with spikes. maybe i should lower the second single block so it doesnt happen. and maybe add a checkpoint to the block with the walljumps.
+> maybe tweak the character movement a little bit so it stops faster (when not pressing anything)
+
+
+
+---
+
 ### Helpful Tutorials
 URP, Lights & Particle Effects
 https://www.youtube.com/watch?v=m-6QjaDfigs
