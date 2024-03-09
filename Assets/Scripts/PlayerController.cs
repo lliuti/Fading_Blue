@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-using UnityEditor.Timeline.Actions;
 using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
