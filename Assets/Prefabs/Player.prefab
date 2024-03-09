@@ -5113,6 +5113,7 @@ MonoBehaviour:
   crystalParticles: {fileID: 2961356876640344229}
   jumpSFX: {fileID: 8300000, guid: e02434959a69cf246a7c5fd25e8d9c76, type: 3}
   walkSFX: {fileID: 8300000, guid: 07ac6b8619345444696458e92687ded5, type: 3}
+  deathSFX: {fileID: 8300000, guid: 44f7ca587bcfc2a40ae8c004f97bc4c4, type: 3}
   collectedCrystal: 0
 --- !u!114 &5558268507003191806
 MonoBehaviour:
