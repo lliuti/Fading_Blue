@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AudioClip jumpSFX;
     [SerializeField] private AudioClip walkSFX;
+    [SerializeField] private AudioClip deathSFX;
     private float walkSFXcooldown;
 
     private Vector2 respawnPos;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer playerSprite;
     private PlayerInput playerInput;
     private bool changedColor = false;
+    private bool isDying = false;
 
     public bool collectedCrystal = false;
 
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
         WalkSFX();
         
         if (collectedCrystal && !changedColor) CollectedCrystal();
-        if (transform.position.y < -9f) Die();
+        if (transform.position.y < -9f && !isDying) Die();
     }
 
     void FixedUpdate()
@@ -184,16 +186,19 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        isDying = true;
         StartCoroutine(Respawn());
     }
 
     IEnumerator Respawn()
     {
+        SoundFXManager.instance.PlaySoundFXClip(deathSFX, transform, 0.5f);
         Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSecondsRealtime(deathSFX.length);
         Time.timeScale = 1f;
         playerRb.velocity = Vector2.zero;
         transform.position = respawnPos;
+        isDying = false;
     }
 
     public void UpdateRespawnPos(Vector2 newPos)
