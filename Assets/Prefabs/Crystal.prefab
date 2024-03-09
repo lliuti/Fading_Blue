@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6605aff4871abe94294b60601fb9c9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorLock: {fileID: 0}
+  collectingClip: {fileID: 8300000, guid: aebdec1ddfb02d74c9ba51368976a364, type: 3}
 --- !u!61 &8561461477692545120
 BoxCollider2D:
   m_ObjectHideFlags: 0
