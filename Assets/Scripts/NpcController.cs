@@ -122,7 +122,9 @@ public class NpcController : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         playerOnRange = false;
+
         interactionIndicator.SetActive(false);
+        LookToPlayer(other.transform.position.x);
         StopAllCoroutines();
         ClearDialogue();
     }
