@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        SoundFXManager.instance.PlaySoundFXClip(deathSFX, transform, 0.5f);
+        SoundFXManager.instance.PlaySoundFXClip(deathSFX, transform, 0.3f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(deathSFX.length);
         Time.timeScale = 1f;
