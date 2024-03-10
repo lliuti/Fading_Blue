@@ -11,21 +11,12 @@ public class CrystalController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-
         other.GetComponent<PlayerController>().collectedCrystal = true;
 
         SoundFXManager.instance.PlaySoundFXClip(collectingClip, transform, 0.4f);
-
         Destroy(gameObject);
 
         Scene scene = SceneManager.GetActiveScene();
-
-        if (scene.buildIndex == 0) {
-            GameObject doorLock = GameObject.Find("Lock");
-            Destroy(doorLock);
-        } else {
-            GateController.instance.OpenGate();
-        }
-
+        if (scene.buildIndex != 0) GateController.instance.OpenGate();
     }
 }
