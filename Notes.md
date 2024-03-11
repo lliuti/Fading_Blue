@@ -218,7 +218,12 @@ Disclaimers: there is still no menu or UI, nor transitions between levels.
 > in scene 3 she is bumping the character on the first block with spikes. maybe i should lower the second single block so it doesnt happen. and maybe add a checkpoint to the block with the walljumps.
 > maybe tweak the character movement a little bit so it stops faster (when not pressing anything)
 
+---
 
+ASSETS THAT ARE NOT MINE:
+
+Free Pixel Font - Thaleah - Free for Commercial Use
+https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059
 
 ---
 
