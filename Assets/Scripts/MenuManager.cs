@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager instance;
 
     [Header("UI")]
+    public bool isPaused = false;
     private GameObject menuCanvas;
     private GameObject optionsMenuCanvas;
-    public bool isPaused = false;
+    private Slider masterSlider;
+    private Slider SFXSlider;
+    private Slider musicSlider;
 
     void Awake()
     {
@@ -19,6 +23,14 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        masterSlider = GameObject.Find("MasterSlider").GetComponent<Slider>();
+        SFXSlider = GameObject.Find("SFXSlider").GetComponent<Slider>();
+        musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        
+        masterSlider.value = MixerManager.instance.masterLevel;
+        SFXSlider.value = MixerManager.instance.SFXLevel;
+        musicSlider.value = MixerManager.instance.musicLevel;
+
         menuCanvas = GameObject.Find("MenuCanvas");
         menuCanvas.SetActive(false);
 
