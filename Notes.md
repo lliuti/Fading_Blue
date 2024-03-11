@@ -235,6 +235,9 @@ Disclaimers: there is still no transitions between levels.
 > General Feedbacks:
 > "the tileset is cool, background too"
 > "the walljump mechanic is cool"
+> "if you change the slider in the options menu you can't change it anymore"
+> "if you change the options, save and quit, in the loaded game the options will be default"
+> "in level 4 the tileset need more variation tiles" 
 
 > Bugs/Glitches found:
 > none
