@@ -15,17 +15,19 @@ public class NpcController : MonoBehaviour
     private bool playerOnRange = false;
     private bool inDialogue = false;
     private SpriteRenderer spriteRenderer;
+    private bool hasNewDialogue = false;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         dialogueCanvas = transform.parent.transform.Find("DialogueCanvas").gameObject;
+        dialogueCanvas.SetActive(false);
 
         dialogueText = dialogueCanvas.GetComponentInChildren<TextMeshProUGUI>();
         dialogueText.text = "";
 
-        dialogueCanvas.SetActive(false);
+        hasNewDialogue = dialogue.Length > 0;
     }
 
     void Update()
@@ -60,6 +62,7 @@ public class NpcController : MonoBehaviour
             dialogueText.text = "";
             StartCoroutine(Typing());
         } else {
+            hasNewDialogue = false;
             ClearDialogue();
         };
 
@@ -104,18 +107,20 @@ public class NpcController : MonoBehaviour
                     "I don't know what you have done but you still are blue.", 
                     "And will never be one of us."
                 };
+                hasNewDialogue = true;
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other) 
     {
+        ChecksIfCollectedCrystal(other.GetComponent<PlayerController>().collectedCrystal);
+        
         if (!other.CompareTag("Player")) return;
-        if (dialogue.Length > 0) interactionIndicator.SetActive(true);
+        if (hasNewDialogue) interactionIndicator.SetActive(true);
         playerOnRange = true;
 
         LookToPlayer(other.transform.position.x);
-        ChecksIfCollectedCrystal(other.GetComponent<PlayerController>().collectedCrystal);
     }
 
     void OnTriggerExit2D(Collider2D other) 
