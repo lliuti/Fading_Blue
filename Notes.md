@@ -218,6 +218,35 @@ Disclaimers: there is still no menu or UI, nor transitions between levels.
 > in scene 3 she is bumping the character on the first block with spikes. maybe i should lower the second single block so it doesnt happen. and maybe add a checkpoint to the block with the walljumps.
 > maybe tweak the character movement a little bit so it stops faster (when not pressing anything)
 
+2.
+Tester: Dart.
+Sequence: from start to level 4.
+Disclaimers: there is still no transitions between levels.
+
+> Feedbacks on the Gameplay:
+> he really liked the gameplay, the movement and walljump mechanic.
+
+> Feedbacks on the Presentation:
+> thinks there is a lot of non detailed places on the 4th level (inside the walls, aka tile variations).
+
+> Feedbacks on the Theme:
+> grasped that it is about the protagonist not being welcome in that place.
+
+> General Feedbacks:
+> "the tileset is cool, background too"
+> "the walljump mechanic is cool"
+
+> Bugs/Glitches found:
+> none
+
+> Notes during gameplay:
+> he went right first. LETS GOO
+> i need to add a checkpoint on the first crystal to force the player to learn the walljump
+> he didn't notice the dialogue change (obviously)
+> maybe i will add a checkpoint on level 3 in front of the gate
+> have to make the start of level 4 easier.
+> add a checkpoint above the crystal in level 4.
+
 ---
 
 ASSETS THAT ARE NOT MINE:
