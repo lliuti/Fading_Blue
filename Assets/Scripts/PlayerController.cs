@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping = false;
     private bool isFacingRight = true;
     private bool canWallJump = false;
+    private bool canMove = true;
 
     [Header("Checks")]
     [SerializeField] private float groundCheckCastDistance;
@@ -49,9 +50,6 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        playerSprite = GetComponent<SpriteRenderer>();
         playerInput = new PlayerInput();
         playerInput.PlayerActionMap.Jump.canceled += OnJumpCanceled;
     }
@@ -68,6 +66,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        playerRb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        playerSprite = GetComponent<SpriteRenderer>();
+
         respawnPos = transform.position;
         currentCoyoteTime = coyoteTime;
         walkSFXcooldown = walkSFX.length;
@@ -75,8 +77,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        CalculateMovement();
-        FlipSprite();
+        if (canMove){
+            CalculateMovement();
+            FlipSprite();
+        };
         CoyoteTime();
         WalkSFX();
         
@@ -88,6 +92,17 @@ public class PlayerController : MonoBehaviour
     {
         playerRb.AddForce(new Vector2(movement, 0), ForceMode2D.Force);
         animator.SetBool("isGrounded", IsGrounded());
+    }
+
+    void OnPause()
+    {
+        if (MenuManager.instance.isPaused) {
+            MenuManager.instance.Unpause();
+            canMove = true;
+        } else {
+            MenuManager.instance.Pause();
+            canMove = false;
+        }
     }
 
     void WalkSFX()
@@ -162,7 +177,6 @@ public class PlayerController : MonoBehaviour
 
     void CalculateMovement() 
     {
-        // xInput = Input.GetAxisRaw("Horizontal"); 
         float targetSpeed = xInput * maxSpeed;
         float speedDifference = targetSpeed - playerRb.velocity.x;
         movement = speedDifference * acceleration;
