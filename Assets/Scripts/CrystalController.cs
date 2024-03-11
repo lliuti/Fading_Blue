@@ -17,6 +17,6 @@ public class CrystalController : MonoBehaviour
         Destroy(gameObject);
 
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.buildIndex != 0) GateController.instance.OpenGate();
+        if (scene.name != "Scene1") GateController.instance.OpenGate();
     }
 }
