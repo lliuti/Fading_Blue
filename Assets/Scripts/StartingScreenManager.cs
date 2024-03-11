@@ -29,11 +29,6 @@ public class StartingScreenManager : MonoBehaviour
     {
         SceneManager.LoadScene("Scene1");
     } 
-
-    public void Options()
-    {
-        
-    }
     
     public void Quit()
     {
