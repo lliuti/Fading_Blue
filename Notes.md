@@ -222,24 +222,24 @@ Disclaimers: there is still no menu or UI, nor transitions between levels.
 
 ---
 
-### Helpful Tutorials
-URP, Lights & Particle Effects
+### References / Helpful Tutorials
+URP, Lights & Particle Effects - PitiIT
 https://www.youtube.com/watch?v=m-6QjaDfigs
 
-Parallax
-https://www.youtube.com/watch?v=zit45k6CUMk
-
-Ways to Ground Check
+Ways to Ground Check - MoreBBlakeyyy
 https://www.youtube.com/watch?v=P_6W-36QfLA
 
-Cinemachine cameras 
+Cinemachine cameras - Sasquatch B Studios
 https://www.youtube.com/watch?v=9dzBrLUIF8g
 
-Tile background image to simple parallax
+Tile background image to simple parallax - Axebit Games
 https://www.youtube.com/watch?v=82zy0LI9tAs
 
-Sound FX & Music
+Sound FX & Music - Sasquatch B Studios
 https://www.youtube.com/watch?v=DU7cgVsU2rM&t=800s
+
+Save & Load - Brackeys
+https://www.youtube.com/watch?v=XOjd_qU2Ido&t=918s
 
 ---
     
