@@ -20,11 +20,12 @@ public class SaveManager : MonoBehaviour
         } else {
             Destroy(gameObject);
         };
+        
+        path = Application.persistentDataPath + "/acerola_0.ls";
     }
 
     void Start()
     {
-        path = Application.persistentDataPath + "/acerola_0.ls";
         if (SceneManager.GetActiveScene().buildIndex > 0) Save();
     }
 
