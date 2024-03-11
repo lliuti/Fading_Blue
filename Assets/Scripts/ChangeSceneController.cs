@@ -11,18 +11,6 @@ public class ChangeSceneController : MonoBehaviour
     private bool onTriggerRange = false;
     private bool canInteract = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void TriggerScene(bool isNextScene) {
         Scene currentScene = SceneManager.GetActiveScene();
         int currentSceneIndex = currentScene.buildIndex;
