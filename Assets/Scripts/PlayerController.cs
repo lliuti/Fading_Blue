@@ -98,10 +98,8 @@ public class PlayerController : MonoBehaviour
     {
         if (MenuManager.instance.isPaused) {
             MenuManager.instance.Unpause();
-            canMove = true;
         } else {
             MenuManager.instance.Pause();
-            canMove = false;
         }
     }
 

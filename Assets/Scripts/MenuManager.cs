@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -62,6 +63,11 @@ public class MenuManager : MonoBehaviour
         menuCanvas.SetActive(true);
     }
     
+    public void GoToStartingScreen()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
 
     private void CloseAllMenus()
     {
