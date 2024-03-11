@@ -11,6 +11,7 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
     public bool existingGame = false;
+    
     private string path;
 
     void Awake()
@@ -36,12 +37,12 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
-        Scene level = SceneManager.GetActiveScene();
-        int index = level.buildIndex;
+        SaveData data = new SaveData();
 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
-        formatter.Serialize(stream, index);
+
+        formatter.Serialize(stream, data);
         stream.Close();
     }
 
@@ -51,11 +52,12 @@ public class SaveManager : MonoBehaviour
 
         BinaryFormatter binaryFormatter = new BinaryFormatter(); 
         FileStream stream = new FileStream(path, FileMode.Open);
-        int loadedIndex = (int)binaryFormatter.Deserialize(stream);
-        stream.Close();
+        SaveData data = binaryFormatter.Deserialize(stream) as SaveData;
 
-        if (!(loadedIndex == SceneManager.GetActiveScene().buildIndex)) {
-            SceneManager.LoadScene(loadedIndex, LoadSceneMode.Single);
+        if (data.sceneIndex != SceneManager.GetActiveScene().buildIndex) {
+            SceneManager.LoadScene(data.sceneIndex, LoadSceneMode.Single);
         }
+
+        stream.Close();
     }
 }

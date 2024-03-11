@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15672c3186df3e34e8dddf5350b7ec2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  existingGame: 0
+  audioMixer: {fileID: 24100000, guid: 9ab8e6433deb92c41b8431aebedc6cbf, type: 2}
