@@ -48,6 +48,7 @@ public class MenuManager : MonoBehaviour
 
     public void Quit()
     {
+        SaveManager.instance.Save();
         Application.Quit();
     }
 
