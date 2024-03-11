@@ -5100,7 +5100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
-  acceleration: 4
+  acceleration: 8
   jumpThrust: 13
   wallJumpThrust: 1.5
   coyoteTime: 0.13
