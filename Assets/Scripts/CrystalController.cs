@@ -13,7 +13,7 @@ public class CrystalController : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         other.GetComponent<PlayerController>().collectedCrystal = true;
 
-        SoundFXManager.instance.PlaySoundFXClip(collectingClip, transform, 0.4f);
+        SoundFXManager.instance.PlaySoundFXClip(collectingClip, transform, 1f);
         Destroy(gameObject);
 
         Scene scene = SceneManager.GetActiveScene();

@@ -21,7 +21,7 @@ public class GateController : MonoBehaviour
     public void OpenGate()
     {
         animator.SetTrigger("Open");
-        SoundFXManager.instance.PlaySoundFXClip(gateOpeningClip, transform, 0.5f);
+        SoundFXManager.instance.PlaySoundFXClip(gateOpeningClip, transform, 1f);
     }
 
 }

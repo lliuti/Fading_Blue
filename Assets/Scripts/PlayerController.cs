@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
     void WalkSFX()
     {
         if (Mathf.Abs(xInput) > 0f && walkSFXcooldown <= 0f && IsGrounded()) {
-            SoundFXManager.instance.PlaySoundFXClip(walkSFX, transform, 0.2f);
+            SoundFXManager.instance.PlaySoundFXClip(walkSFX, transform, 1f);
             walkSFXcooldown = walkSFX.length;
         } else {
             walkSFXcooldown -= 1 * Time.deltaTime;
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
         isJumping = true;
         dustParticles.Play();
-        SoundFXManager.instance.PlaySoundFXClip(jumpSFX, transform, 0.1f);
+        SoundFXManager.instance.PlaySoundFXClip(jumpSFX, transform, 1f);
         animator.SetTrigger("jump");
     }
 
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Respawn()
     {
-        SoundFXManager.instance.PlaySoundFXClip(deathSFX, transform, 0.3f);
+        SoundFXManager.instance.PlaySoundFXClip(deathSFX, transform, 1f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(deathSFX.length);
         Time.timeScale = 1f;
