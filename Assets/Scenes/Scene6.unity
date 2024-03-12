@@ -31303,7 +31303,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 626756016779764451, guid: c39573724fbed5e478b143251aabb95d, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 626756016779764451, guid: c39573724fbed5e478b143251aabb95d, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1887233737357005104, guid: c39573724fbed5e478b143251aabb95d, type: 3}
       propertyPath: m_LocalPosition.x
