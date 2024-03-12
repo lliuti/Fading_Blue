@@ -8,8 +8,17 @@ public class ChangeSceneController : MonoBehaviour
 {
     [SerializeField] private bool isNextScene; 
     [SerializeField] private bool isWalkable = true;
+    private GameObject interactionIndicator;
     private bool onTriggerRange = false;
     private bool canInteract = false;
+
+    void Start()
+    {
+        if (!isWalkable) {
+            interactionIndicator = transform.Find("InteractionIndicator").gameObject;
+            interactionIndicator.SetActive(false);
+        }
+    }
 
     void TriggerScene(bool isNextScene) {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -25,11 +34,17 @@ public class ChangeSceneController : MonoBehaviour
         }
     }
 
+    void ShowIndicator()
+    {
+        interactionIndicator.SetActive(true);
+    }
+
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
         if (other.GetComponent<PlayerController>().collectedCrystal) canInteract = true;
         if (isWalkable && canInteract) TriggerScene(isNextScene);
+        if (!isWalkable && canInteract) ShowIndicator();
         onTriggerRange = true;
     }
 
