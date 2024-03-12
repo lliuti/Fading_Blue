@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField] private ParticleSystem dustParticles;
-    [SerializeField] private ParticleSystem crystalParticles;
+    public ParticleSystem crystalParticles;
 
     [Header("SFX")]
     [SerializeField] private AudioClip jumpSFX;
@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private SpriteRenderer playerSprite;
     private PlayerInput playerInput;
-    private bool changedColor = false;
     private bool isDying = false;
 
     public bool collectedCrystal = false;
@@ -83,8 +82,7 @@ public class PlayerController : MonoBehaviour
         };
         CoyoteTime();
         WalkSFX();
-        
-        if (collectedCrystal && !changedColor) CollectedCrystal();
+    
         if (transform.position.y < -9f && !isDying) Die();
     }
 
@@ -111,14 +109,6 @@ public class PlayerController : MonoBehaviour
         } else {
             walkSFXcooldown -= 1 * Time.deltaTime;
         };
-    }
-
-    void CollectedCrystal()
-    {
-        crystalParticles.Play();
-        changedColor = true;
-        Light2D light = transform.Find("Light 2D").GetComponent<Light2D>();
-        light.color = new Color(255f/255, 1f/255, 1f/255, 255f/255);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
