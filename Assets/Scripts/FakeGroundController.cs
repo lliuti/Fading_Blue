@@ -16,7 +16,7 @@ public class FakeGroundController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (!other.CompareTag("Player") || hasEntered) return;
         animator.SetTrigger("Disappear");
-        crystal.SetActive(true);
         hasEntered = true;
+        if (crystal != null) crystal.SetActive(true);
     }
 }
