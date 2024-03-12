@@ -270,6 +270,7 @@ Disclaimers: there is still transitions between levels.
 
 > Bugs/Glitches found:
 > from scene 7 to 8 all sounds went to 0
+> zeroing sounds and starting a new game make the sliders appear as full volume but there is no volume
 
 > Notes during gameplay:
 > she is stuck on the wall in level 4 (for a loooooooooong time)
