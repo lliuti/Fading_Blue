@@ -123,14 +123,14 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Cave_Entrance
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.48387095, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
+      width: 31
       height: 24
     spriteID: 073cd3447ca319944a59f657210b0599
     spriteBone: []
@@ -153,9 +153,9 @@ ScriptedImporter:
     - name: Cave_Entrance
       frameIndex: 0
       cellRect:
-        x: 0
+        x: 1
         y: 0
-        width: 32
+        width: 31
         height: 24
       spriteId: 073cd3447ca319944a59f657210b0599
     linkedCells: []
