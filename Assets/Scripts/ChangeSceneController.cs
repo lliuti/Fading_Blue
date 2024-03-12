@@ -8,6 +8,7 @@ public class ChangeSceneController : MonoBehaviour
 {
     [SerializeField] private bool isNextScene; 
     [SerializeField] private bool isWalkable = true;
+    [SerializeField] private bool needsCrystal = true;
     private GameObject interactionIndicator;
     private bool onTriggerRange = false;
     private bool canInteract = false;
@@ -42,7 +43,7 @@ public class ChangeSceneController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (!other.CompareTag("Player")) return;
-        if (other.GetComponent<PlayerController>().collectedCrystal) canInteract = true;
+        if (other.GetComponent<PlayerController>().collectedCrystal || !needsCrystal) canInteract = true;
         if (isWalkable && canInteract) TriggerScene(isNextScene);
         if (!isWalkable && canInteract) ShowIndicator();
         onTriggerRange = true;
