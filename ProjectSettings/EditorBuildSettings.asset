@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene4.unity
     guid: f0cc61b221f3de1468772247fd4957d6
   - enabled: 1
+    path: Assets/Scenes/Scene5.unity
+    guid: 21f29556a6e0ab042a37bbab634b38e7
+  - enabled: 1
+    path: Assets/Scenes/Scene6.unity
+    guid: daef2d17b63036e479ed11cc9f5d9f47
+  - enabled: 1
     path: Assets/Scenes/END_OF_PLAYTEST.unity
     guid: 429b94d6b640809428f3e5a1f427c1e5
   m_configObjects: {}
