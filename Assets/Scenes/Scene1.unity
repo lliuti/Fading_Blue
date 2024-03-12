@@ -12582,7 +12582,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.97999, y: -1.9453499, z: -39.93759}
+  m_LocalPosition: {x: 25.979982, y: -1.94536, z: -39.93759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18289,8 +18289,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -2.201, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1478188425}
+  m_Children: []
   m_Father: {fileID: 1155427576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1071786547
@@ -24441,11 +24440,11 @@ Transform:
   m_GameObject: {fileID: 1478188424}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0.02999878, y: 1.2871594, z: 0.065143175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1071786546}
+  m_Father: {fileID: 1811926321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1478188426
 Animator:
@@ -25403,6 +25402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1811926321 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2077063009974594133, guid: 39a1f876fad8c8545bdde2eaefa0231f, type: 3}
+  m_PrefabInstance: {fileID: 125782320149089655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1844149480
 GameObject:
   m_ObjectHideFlags: 0
@@ -35869,7 +35873,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2077063009974594133, guid: 39a1f876fad8c8545bdde2eaefa0231f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1478188425}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a1f876fad8c8545bdde2eaefa0231f, type: 3}
 --- !u!1001 &290151577487330198
