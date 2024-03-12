@@ -250,6 +250,32 @@ Disclaimers: there is still no transitions between levels.
 > have to make the start of level 4 easier.
 > add a checkpoint above the crystal in level 4.
 
+3.
+Tester: Sayuri.
+Sequence: from start to end.
+Disclaimers: there is still transitions between levels.
+
+> Feedbacks on the Gameplay:
+> 8/10 -> not 10 because the jumping mechanic is really hard.
+
+> Feedbacks on the Presentation:
+> 10/10
+
+> Feedbacks on the Theme:
+> 9/10 -> not 10 because there should be more references to being a freak, something related "to the red ones"
+> without the red ones, the beginning does not make sense. it doesn't look like the end of the game.
+
+> General Feedbacks:
+> in the last scene, transition from the light to the credits.
+
+> Bugs/Glitches found:
+> from scene 7 to 8 all sounds went to 0
+
+> Notes during gameplay:
+> she is stuck on the wall in level 4 (for a loooooooooong time)
+> the cave entrance sprite is not blending with the background. must change it asap
+>  
+
 ---
 
 ASSETS THAT ARE NOT MINE:
@@ -274,7 +300,6 @@ https://www.youtube.com/watch?v=82zy0LI9tAs
 
 Sound FX & Music - Sasquatch B Studios
 https://www.youtube.com/watch?v=DU7cgVsU2rM&t=800s
-
 Save & Load - Brackeys
 https://www.youtube.com/watch?v=XOjd_qU2Ido&t=918s
 
