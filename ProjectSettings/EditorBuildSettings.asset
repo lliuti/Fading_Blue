@@ -30,6 +30,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene7.unity
     guid: 24576caab679a65439e5180aaf8dcc61
   - enabled: 1
-    path: Assets/Scenes/END_OF_PLAYTEST.unity
+    path: Assets/Scenes/Scene8.unity
+    guid: a23569cdb6211cb47a1bce0a2fbc3bc3
+  - enabled: 1
+    path: Assets/Scenes/Scene9.unity
+    guid: 831e0d82307b15f4e8a084c26680cc25
+  - enabled: 1
+    path: Assets/Scenes/EndingScreen.unity
     guid: 429b94d6b640809428f3e5a1f427c1e5
   m_configObjects: {}
