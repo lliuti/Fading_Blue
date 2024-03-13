@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class ChangeSceneController : MonoBehaviour
@@ -9,6 +10,7 @@ public class ChangeSceneController : MonoBehaviour
     [SerializeField] private bool isNextScene; 
     [SerializeField] private bool isWalkable = true;
     [SerializeField] private bool needsCrystal = true;
+    [SerializeField] private Animator animator;
     private GameObject interactionIndicator;
     private bool onTriggerRange = false;
     private bool canInteract = false;
@@ -25,7 +27,14 @@ public class ChangeSceneController : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         int currentSceneIndex = currentScene.buildIndex;
         int nextScene = isNextScene ? currentSceneIndex + 1 : currentSceneIndex - 1;
-        SceneManager.LoadScene(nextScene);
+        StartCoroutine(FadeOut(nextScene));
+    }
+
+    IEnumerator FadeOut(int scene)
+    {
+        animator.SetTrigger("Out");
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(scene);
     }
     
     void OnInteract()
