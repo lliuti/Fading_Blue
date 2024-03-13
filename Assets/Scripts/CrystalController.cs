@@ -29,17 +29,17 @@ public class CrystalController : MonoBehaviour
     
         SoundFXManager.instance.PlaySoundFXClip(collectingClip, transform, 1f);
 
-        Light2D light = player.transform.Find("Light 2D").GetComponent<Light2D>();
+        Light2D playerLight = player.transform.Find("Light 2D").GetComponent<Light2D>();
         if (blueCrystal) {
-            light.color = new Color(0f/255, 154f/255, 255f/255, 255f/255);
-            light.intensity = 2f;
-            light.pointLightOuterRadius = 5f;
+            playerLight.color = new Color(50f/255, 50f/255, 255f/255, 255f/255);
+            playerLight.intensity = 2f;
+            playerLight.pointLightOuterRadius = 5f;
 
             Light2D globalLight = GameObject.Find("Global Light 2D").GetComponent<Light2D>();
             globalLight.intensity = 1;
-            globalLight.color = new Color(84f/255, 224f/255, 224f/255, 255f/255);
+            globalLight.color = new Color(255f/255, 255f/255, 255f/255, 255f/255);
         } else {
-            light.color = new Color(255f/255, 1f/255, 1f/255, 255f/255);
+            playerLight.color = new Color(255f/255, 1f/255, 1f/255, 255f/255);
         }
     }
 }
