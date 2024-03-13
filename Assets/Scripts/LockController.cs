@@ -29,6 +29,6 @@ public class LockController : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        interactionIndicator.SetActive(false);
+        if (interactionIndicator) interactionIndicator.SetActive(false);
     }
 }
