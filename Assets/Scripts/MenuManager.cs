@@ -12,29 +12,30 @@ public class MenuManager : MonoBehaviour
     public bool isPaused = false;
     private GameObject menuCanvas;
     private GameObject optionsMenuCanvas;
-    private Slider masterSlider;
-    private Slider SFXSlider;
-    private Slider musicSlider;
+    public Slider masterSlider;
+    public Slider SFXSlider;
+    public Slider musicSlider;
 
     void Awake()
     {
-        if (instance == null) instance = this;
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        };
     }
 
     void Start()
     {
+        menuCanvas = transform.Find("MenuCanvas").gameObject;
+        optionsMenuCanvas = transform.Find("OptionsMenuCanvas").gameObject;
+
         masterSlider = GameObject.Find("MasterSlider").GetComponent<Slider>();
         SFXSlider = GameObject.Find("SFXSlider").GetComponent<Slider>();
         musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
-        
-        masterSlider.value = MixerManager.instance.masterLevel;
-        SFXSlider.value = MixerManager.instance.SFXLevel;
-        musicSlider.value = MixerManager.instance.musicLevel;
 
-        menuCanvas = GameObject.Find("MenuCanvas");
         menuCanvas.SetActive(false);
-
-        optionsMenuCanvas = GameObject.Find("OptionsMenuCanvas");
         optionsMenuCanvas.SetActive(false);
     }
 
@@ -48,14 +49,7 @@ public class MenuManager : MonoBehaviour
     public void Unpause()
     {
         Time.timeScale = 1f;
-        isPaused = false;
         CloseAllMenus();
-    }
-
-    public void Save()
-    {
-        SaveManager.instance.Save();
-        Unpause();
     }
 
     public void Quit()
@@ -77,13 +71,16 @@ public class MenuManager : MonoBehaviour
     }
     
     public void GoToStartingScreen()
-    {
+    {   
+        CloseAllMenus();
+        SaveManager.instance.Save();
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
     private void CloseAllMenus()
     {
+        isPaused = false;
         menuCanvas.SetActive(false);
         optionsMenuCanvas.SetActive(false);
     }
