@@ -6,14 +6,7 @@ using UnityEngine.UI;
 
 public class StartingScreenManager : MonoBehaviour
 {
-    public static StartingScreenManager instance;
-
     [SerializeField] Button continueButton;
-
-    void Awake()
-    {
-        if (instance == null) instance = this;
-    }
 
     void Start()
     {
