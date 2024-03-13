@@ -10,7 +10,6 @@ using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;
-    public bool existingGame = false;
     
     private string path;
 
@@ -37,7 +36,11 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
-        SaveData data = new SaveData();
+        SaveData data = new SaveData(
+            MenuManager.instance.masterSlider.value, 
+            MenuManager.instance.SFXSlider.value, 
+            MenuManager.instance.musicSlider.value
+        );
 
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -59,5 +62,14 @@ public class SaveManager : MonoBehaviour
         }
 
         stream.Close();
+        
+        MenuManager.instance.masterSlider.value = data.masterLevel;
+        MenuManager.instance.SFXSlider.value = data.SFXLevel;
+        MenuManager.instance.musicSlider.value = data.musicLevel;
+        // yes i know i can do better but god knows 
+        // how tired of this freaking sound options i am. 
+        MixerManager.instance.SetMasterVolume(data.masterLevel);
+        MixerManager.instance.SetSFXVolume(data.SFXLevel);
+        MixerManager.instance.SetMusicVolume(data.musicLevel);
     }
 }
