@@ -35,6 +35,7 @@ public class ChangeSceneController : MonoBehaviour
         animator.SetTrigger("Out");
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(scene);
+        if (scene == 10 && TimerManager.instance != null) TimerManager.instance.StopTimer();
     }
     
     void OnInteract()
