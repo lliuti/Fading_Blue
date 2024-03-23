@@ -36,5 +36,6 @@ public class TimerManager : MonoBehaviour
         TimeSpan time = TimeSpan.FromSeconds(timer);
         string str = time.ToString(@"mm\:ss\:fff");
         parsedTime = str;
+        timer = 0f;
     }   
 }

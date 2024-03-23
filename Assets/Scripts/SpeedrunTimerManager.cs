@@ -10,10 +10,10 @@ public class SpeedrunTimerManager : MonoBehaviour
 
     void Start()
     {
-        if (TimerManager.instance != null) {
-            runTextValue.text = TimerManager.instance.parsedTime;
-        } else {
+        if (TimerManager.instance == null) {
             Destroy(gameObject);
+        } else {
+            runTextValue.text = TimerManager.instance.parsedTime;
         }
     }
 }
