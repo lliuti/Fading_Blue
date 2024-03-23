@@ -20,6 +20,7 @@ public class StartingScreenManager : MonoBehaviour
 
     public void NewGame()
     {
+        Destroy(GameObject.Find("TimerManager").gameObject);
         SceneManager.LoadScene("Scene1");
     } 
     
