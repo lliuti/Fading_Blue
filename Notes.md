@@ -1,3 +1,6 @@
+Important: <br/>
+This was created in the pre-production stage of the game (and updated during development), so, keep in mind that a lot of things presented here might not be in the final game.
+
 # Theme
 ###### ABERRATION
 ###### a departure from what is normal, usual or expected, typically one that is unwelcome.
