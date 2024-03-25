@@ -36,6 +36,8 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
+        if (MenuManager.instance.masterSlider == null) return;
+
         SaveData data = new SaveData(
             MenuManager.instance.masterSlider.value, 
             MenuManager.instance.SFXSlider.value, 
