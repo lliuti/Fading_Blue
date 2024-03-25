@@ -1,5 +1,5 @@
 <p align="center"><img width=100% src="Assets/Fading-Blue-Itch-Io-Banner.png?raw=true"></p>
-A challenging platformer about not losing your light. Play it [here](https://itch.io/jam/acerola-jam-0)!
+A challenging platformer about not losing your light.
 
 ---
 
