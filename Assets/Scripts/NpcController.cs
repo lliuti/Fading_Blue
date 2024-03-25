@@ -41,7 +41,11 @@ public class NpcController : MonoBehaviour
 
         if (inDialogue) {
             StopAllCoroutines();
-            NextLine();
+            if (dialogueText.text != dialogue[dialogueIndex]) {
+                CompleteLine();
+            } else {
+                NextLine();
+            }
             return;
         }
 
@@ -65,7 +69,11 @@ public class NpcController : MonoBehaviour
             hasNewDialogue = false;
             ClearDialogue();
         };
+    }
 
+    void CompleteLine()
+    {
+        dialogueText.text = dialogue[dialogueIndex];
     }
 
     void ClearDialogue()
