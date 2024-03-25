@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float maxSpeed; 
     [SerializeField] private float acceleration; 
+    [SerializeField] private float decceleration; 
     [SerializeField] private float jumpThrust; 
     [SerializeField] private float wallJumpThrust; 
     [SerializeField] private float coyoteTime;
@@ -64,12 +65,20 @@ public class PlayerController : MonoBehaviour
         };
         CoyoteTime();
         WalkSFX();
+
+        animator.SetBool("isMoving", Mathf.Abs(xInput) > 0);
+        animator.SetFloat("yVelocity", playerRb.velocity.y);
+        animator.SetBool("isGrounded", IsGrounded());
     }
 
     void FixedUpdate()
     {
-        playerRb.AddForce(new Vector2(movement, 0), ForceMode2D.Force);
-        animator.SetBool("isGrounded", IsGrounded());
+        Move();
+    }
+
+    void Move()
+    {
+        playerRb.AddForce(Vector2.right * movement, ForceMode2D.Force);
     }
 
     void WalkSFX()
@@ -117,10 +126,16 @@ public class PlayerController : MonoBehaviour
     {
         float targetSpeed = xInput * maxSpeed;
         float speedDifference = targetSpeed - playerRb.velocity.x;
-        movement = speedDifference * acceleration;
 
-        animator.SetBool("isMoving", Mathf.Abs(xInput) > 0);
-        animator.SetFloat("yVelocity", playerRb.velocity.y);
+        if (Mathf.Abs(xInput) == 0f) {
+            movement = speedDifference * decceleration;
+            return;
+        };
+
+        if (Mathf.Abs(xInput) != 0f) {
+            movement = speedDifference * acceleration;
+            return;
+        };
     }
 
     void FlipSprite() 
