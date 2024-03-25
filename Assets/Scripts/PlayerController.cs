@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [Header("Checks")]
     [SerializeField] private float groundCheckCastDistance;
     [SerializeField] private Vector2 groundCheckCastSize;
+    public bool collectedCrystal = false;
 
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer; 
@@ -35,17 +36,13 @@ public class PlayerController : MonoBehaviour
     [Header("SFX")]
     [SerializeField] private AudioClip jumpSFX;
     [SerializeField] private AudioClip walkSFX;
-    [SerializeField] private AudioClip deathSFX;
     private float walkSFXcooldown;
 
-    private Vector2 respawnPos;
-    private Rigidbody2D playerRb;
-    private Animator animator;
-    private SpriteRenderer playerSprite;
+    [Header("Components")]
+    [SerializeField] private Rigidbody2D playerRb;
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteRenderer playerSprite;
     private PlayerInput playerInput;
-    private bool isDying = false;
-
-    public bool collectedCrystal = false;
 
     void Awake()
     {
@@ -53,23 +50,8 @@ public class PlayerController : MonoBehaviour
         playerInput.PlayerActionMap.Jump.canceled += OnJumpCanceled;
     }
 
-    void OnEnable() 
-    {
-        playerInput.Enable();
-    }
-    
-    void OnDisable() 
-    {
-        playerInput.Disable();
-    }
-
     void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        playerSprite = GetComponent<SpriteRenderer>();
-
-        respawnPos = transform.position;
         currentCoyoteTime = coyoteTime;
         walkSFXcooldown = walkSFX.length;
     }
@@ -82,8 +64,6 @@ public class PlayerController : MonoBehaviour
         };
         CoyoteTime();
         WalkSFX();
-    
-        if (transform.position.y < -9f && !isDying) Die();
     }
 
     void FixedUpdate()
@@ -92,23 +72,15 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isGrounded", IsGrounded());
     }
 
-    void OnPause()
-    {
-        if (MenuManager.instance.isPaused) {
-            MenuManager.instance.Unpause();
-        } else {
-            MenuManager.instance.Pause();
-        }
-    }
-
     void WalkSFX()
     {
-        if (Mathf.Abs(xInput) > 0f && walkSFXcooldown <= 0f && IsGrounded()) {
+        if (Mathf.Abs(xInput) > 0f && IsGrounded() && walkSFXcooldown <= 0f) {
             SoundFXManager.instance.PlaySoundFXClip(walkSFX, transform, 1f);
             walkSFXcooldown = walkSFX.length;
-        } else {
-            walkSFXcooldown -= 1 * Time.deltaTime;
+            return;
         };
+
+        walkSFXcooldown -= 1 * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -121,31 +93,14 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.CompareTag("JumpableWall")) canWallJump = false;
     }
 
-    void OnJump(InputValue value)
-    {   
-        if (currentCoyoteTime <= 0 && !canWallJump) return;
-
-        // NORMAL JUMP
-        if (currentCoyoteTime > 0 && !canWallJump) {
-            playerRb.AddForce(new Vector2(0, jumpThrust), ForceMode2D.Impulse);
-        }
-
-        // WALL JUMP
-        if (canWallJump) {
-            playerRb.AddForce(new Vector2(0, jumpThrust * wallJumpThrust), ForceMode2D.Impulse);
-        }
-
+    void Jump(float jumpForce)
+    {
         isJumping = true;
-        dustParticles.Play();
-        SoundFXManager.instance.PlaySoundFXClip(jumpSFX, transform, 1f);
-        animator.SetTrigger("jump");
-    }
+        playerRb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
-    void OnJumpCanceled(InputAction.CallbackContext context) {
-        isJumping = false;
-        if (playerRb.velocity.y > 0) {
-            playerRb.velocity = new Vector2(playerRb.velocity.x, 0);
-        }
+        dustParticles.Play();
+        animator.SetTrigger("jump");
+        SoundFXManager.instance.PlaySoundFXClip(jumpSFX, transform, 1f);
     }
 
     void CoyoteTime() {
@@ -156,11 +111,6 @@ public class PlayerController : MonoBehaviour
 
         if (IsGrounded()) currentCoyoteTime = coyoteTime;
         currentCoyoteTime -= 1 * Time.deltaTime;
-    }
-
-    void OnMove(InputValue value) 
-    {
-        xInput = value.Get<Vector2>().x;
     }
 
     void CalculateMovement() 
@@ -186,30 +136,42 @@ public class PlayerController : MonoBehaviour
         return Physics2D.BoxCast(transform.position, groundCheckCastSize, 0, -Vector2.up, groundCheckCastDistance, groundLayer);
     }
 
-    public void Die()
+    void OnMove(InputValue value) 
     {
-        isDying = true;
-        StartCoroutine(Respawn());
+        xInput = value.Get<Vector2>().x;
     }
 
-    IEnumerator Respawn()
-    {
-        SoundFXManager.instance.PlaySoundFXClip(deathSFX, transform, 1f);
-        Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(deathSFX.length);
-        Time.timeScale = 1f;
-        playerRb.velocity = Vector2.zero;
-        transform.position = respawnPos;
-        isDying = false;
+    void OnJump(InputValue value)
+    {   
+        if (currentCoyoteTime <= 0 && !canWallJump) return;
+
+        if (currentCoyoteTime > 0 && !canWallJump) Jump(jumpThrust); // Normal Jump
+        if (canWallJump) Jump(jumpThrust * wallJumpThrust); // Wall Jump
     }
 
-    public void UpdateRespawnPos(Vector2 newPos)
-    {
-        respawnPos = newPos;
+    void OnJumpCanceled(InputAction.CallbackContext context) {
+        isJumping = false;
+        if (playerRb.velocity.y > 0) playerRb.velocity = new Vector2(playerRb.velocity.x, 0);
     }
-    void OnDrawGizmos()
+
+    void OnPause()
     {
-        Gizmos.DrawWireCube(transform.position - transform.up * groundCheckCastDistance, groundCheckCastSize);
+        if (MenuManager.instance.isPaused) {
+            MenuManager.instance.Unpause();
+            return;
+        };
+
+        MenuManager.instance.Pause();
+    }
+    
+    void OnEnable() 
+    {
+        playerInput.Enable();
+    }
+    
+    void OnDisable() 
+    {
+        playerInput.Disable();
     }
 
     void OnDestroy()

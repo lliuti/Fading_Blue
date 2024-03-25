@@ -4925,8 +4925,9 @@ GameObject:
   - component: {fileID: 8828197249137399150}
   - component: {fileID: 3705884804457384517}
   - component: {fileID: 1051949686297666354}
-  - component: {fileID: 5908433759120777259}
   - component: {fileID: 5558268507003191806}
+  - component: {fileID: 5908433759120777259}
+  - component: {fileID: 4950320820235107289}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5087,34 +5088,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5908433759120777259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6501828044987123013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d879940e6f656e4a943a8230648355d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeed: 10
-  acceleration: 8
-  jumpThrust: 13
-  wallJumpThrust: 1.5
-  coyoteTime: 0.13
-  groundCheckCastDistance: 0.63
-  groundCheckCastSize: {x: 0.8, y: 0.15}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  dustParticles: {fileID: 7221603142220956669}
-  crystalParticles: {fileID: 2961356876640344229}
-  jumpSFX: {fileID: 8300000, guid: e02434959a69cf246a7c5fd25e8d9c76, type: 3}
-  walkSFX: {fileID: 8300000, guid: 07ac6b8619345444696458e92687ded5, type: 3}
-  deathSFX: {fileID: 8300000, guid: 44f7ca587bcfc2a40ae8c004f97bc4c4, type: 3}
-  collectedCrystal: 0
 --- !u!114 &5558268507003191806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,6 +5118,49 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerActionMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5908433759120777259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501828044987123013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d879940e6f656e4a943a8230648355d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  acceleration: 8
+  jumpThrust: 13
+  wallJumpThrust: 1.5
+  coyoteTime: 0.13
+  groundCheckCastDistance: 0.63
+  groundCheckCastSize: {x: 0.8, y: 0.15}
+  collectedCrystal: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  dustParticles: {fileID: 7221603142220956669}
+  crystalParticles: {fileID: 2961356876640344229}
+  jumpSFX: {fileID: 8300000, guid: e02434959a69cf246a7c5fd25e8d9c76, type: 3}
+  walkSFX: {fileID: 8300000, guid: 07ac6b8619345444696458e92687ded5, type: 3}
+  playerRb: {fileID: 3705884804457384517}
+  animator: {fileID: 1051949686297666354}
+  playerSprite: {fileID: 5216646195451019063}
+--- !u!114 &4950320820235107289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501828044987123013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65489d909e8c0d045b819ef7e9a16218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSFX: {fileID: 8300000, guid: 44f7ca587bcfc2a40ae8c004f97bc4c4, type: 3}
 --- !u!1 &8533850442482537776
 GameObject:
   m_ObjectHideFlags: 0
